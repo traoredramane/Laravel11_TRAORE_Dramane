@@ -11,7 +11,7 @@
     <div class="container">
   <div class="row">
     <div class="col s12">
-      <h1>AJOUTER UN TUTEUR - LARAVEL11</h1>
+      <h1>MODIFIER UN TAG - LARAVEL11</h1>
       <hr>
     
     @if (session('status'))
@@ -28,53 +28,25 @@
     </ul>
    
     
-      <form action="/ajouter2/traitement" method="POST">
+      <form action="/update4/traitement" method="POST">
       @csrf
       
+      <input type="text" name="id" style="display: none;" value="{{ $tag->id }}">
+      
   <div class="mb-3">
-    <label for="Nom" class="form-label">Nom</label>
-    <input type="texte" class="form-control" id="Nom" name="nom">
+    <label for="Nom" class="form-label">Titre</label>
+    <input type="texte" class="form-control" id="Nom" name="nom" value="{{ $tag->nom }}">
   </div>
+
   
-  <div class="mb-3">
-    <label for="Prenom" class="form-label">Prenom</label>
-    <input type="texte" class="form-control" id="Prenom" name="prenom">
-  </div>
-  
-  
-  <div class="mb-3">
-    <label for="etudiant" class="form-label">Etudiant</label>
-    <input type="texte" class="form-control" id="Prenom" name="etudiant">
-  </div>
-  
-  
-  <div class="mb-3">
-    <label for="contact" class="form-label">Contact</label>
-    <input type="number" class="form-control" id="contact" name="contact">
-  </div>
-  
-  
-  <div class="mb-3">
-    <label for="profession" class="form-label">Profession</label>
-    <input type="texte" class="form-control" id="profession" name="profession">
-  </div>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+ 
+ 
  <br>
-  <button type="submit" class="btn btn-primary">AJOUTER UN TUTEUR</button>
+  <button type="submit" class="btn btn-primary">MODIFIER UN TUTEUR</button>
   
   <br> <br>
   
-  <a href="/tuteur" class="btn btn-danger">Revenir à la liste des tuteurs</a>
+  <a href="/tag" class="btn btn-danger">Revenir à la liste des tuteurs</a>
   
 </form>
     

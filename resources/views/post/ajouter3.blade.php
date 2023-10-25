@@ -11,7 +11,7 @@
     <div class="container">
   <div class="row">
     <div class="col s12">
-      <h1>AJOUTER UN TUTEUR - LARAVEL11</h1>
+      <h1>AJOUTER UN POST - LARAVEL11</h1>
       <hr>
     
     @if (session('status'))
@@ -28,53 +28,36 @@
     </ul>
    
     
-      <form action="/ajouter2/traitement" method="POST">
+      <form action="/ajouter3/traitement" method="POST">
       @csrf
       
   <div class="mb-3">
-    <label for="Nom" class="form-label">Nom</label>
-    <input type="texte" class="form-control" id="Nom" name="nom">
+    <label for="Titre" class="form-label">Titre</label>
+    <input type="texte" class="form-control" id="Titre" name="titre">
   </div>
   
   <div class="mb-3">
-    <label for="Prenom" class="form-label">Prenom</label>
-    <input type="texte" class="form-control" id="Prenom" name="prenom">
+    <label for="Contenu" class="form-label">Contenu</label>
+    <input type="texte" class="form-control" id="Contenu" name="contenu">
   </div>
-  
-  
-  <div class="mb-3">
-    <label for="etudiant" class="form-label">Etudiant</label>
-    <input type="texte" class="form-control" id="Prenom" name="etudiant">
-  </div>
-  
-  
-  <div class="mb-3">
-    <label for="contact" class="form-label">Contact</label>
-    <input type="number" class="form-control" id="contact" name="contact">
-  </div>
-  
-  
-  <div class="mb-3">
-    <label for="profession" class="form-label">Profession</label>
-    <input type="texte" class="form-control" id="profession" name="profession">
-  </div>
-  
-  
-  
-  
-  
-  
-  
-  
-  
+
+
+  <div class="form-floating">
+    <div> <label for="tag" class="form-label">Tag</label></div>
+     <select class="form-select" id="tag_id" aria-label="Floating label select example" name="tag_id">
+       <option value="selected">selectionné un Tag</option>                                                                                                                                                                                                                                     as $ville)
+       @foreach($tags as $tag)
+      <option value="{{$tag->id}}">{{$tag->nom}} </option>
+       @endforeach
+     </select>
   
   
  <br>
-  <button type="submit" class="btn btn-primary">AJOUTER UN TUTEUR</button>
+  <button type="submit" class="btn btn-primary">AJOUTER UN POST</button>
   
   <br> <br>
   
-  <a href="/tuteur" class="btn btn-danger">Revenir à la liste des tuteurs</a>
+  <a href="/post" class="btn btn-danger">Revenir à la liste des posts</a>
   
 </form>
     

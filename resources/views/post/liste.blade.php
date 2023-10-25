@@ -30,14 +30,9 @@
     <thead>
     <tr>
     <th>#</th>
-    <th>Nom</th>
-    <th>Prenom</th>
-    <th>Classe</th>
-    <th>Tuteur</th>
-     <th>Ville</th>
-    <th>Nationalité</th>
-    <th>Groupe sanguin</th>
-    <th>image</th>
+    <th>Titre</th>
+    <th>Contenu</th>
+    <th>Tag</th>
     <th>Actions</th>
     </tr>
     </thead>
@@ -46,22 +41,22 @@
     @php
       $ide = 1;
     @endphp
-    @foreach ($etudiants as $etudiant)
+    @foreach ($posts as $post)
 
     <tr>
     <td>{{ $ide }}</td>
-    <td>{{ $etudiant->nom }}</td>
-    <td>{{ $etudiant->prenom }}</td>
-    <td>{{ $etudiant->classe }}</td>
-    <td>{{ $etudiant->tuteur->nom }}</td>
-    <td>{{ $etudiant->ville->nom }}</td>
-    <td>{{ $etudiant->nationalite->nom }}</td>
-    <td>{{ $etudiant->groupe->nom }}</td>
-    {{-- <td>{{ $etudiant->tuteur ? $etudiant->tuteur->etudiant: "" }}</td>  --}}
-    <td> <img src="/images/{{ $etudiant->photo}}" alt="" style="width: 60px; height:60px; border-radius: 50px"> </td> 
+    <td>{{ $post->titre }}</td>
+    <td>{{ $post->contenu }}</td>
     <td>
-    <a href="/update-etudiant/{{ $etudiant->id }}" class="btn btn-info">Update</a>
-    <a href="/delete-etudiant/{{ $etudiant->id }}" class="btn btn-danger">Delate</a>
+    @foreach ($post->tags as $tag)
+    {{ $tag->nom }}
+    @endforeach
+   
+    
+    </td>
+    <td>
+    <a href="/update3-post/{{ $post->id }}" class="btn btn-info">Update</a>
+    <a href="/delete-post/{{ $post->id }}" class="btn btn-danger">Delate</a>
     </td>
 
     
@@ -80,8 +75,8 @@
     </div>
    
   </div>
-  <a href="/tuteur" class="btn btn-danger">Revenir à la liste des Tuteurs</a>
-  <a href="/post" class="btn btn-danger" style="margin-left: 25px; background-color: rgb(162, 98, 15)">Revenir à la liste des Posts</a>
+  <a href="/tag" class="btn btn-danger">Revenir à la liste des Tags</a>
+  <a href="/post_tag" class="btn btn-danger" style="margin-left: 25px; background-color: rgb(162, 98, 15)">Revenir à la liste des Posts et Tags</a>
   
 </div>
     
