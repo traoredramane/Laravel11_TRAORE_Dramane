@@ -60,7 +60,7 @@ class TagController extends Controller
   
   
   public function delete_tag($id){
-    $tag = Post::find($id);
+    $tag = Tag::find($id);
     $tag->delete();
     return redirect('/tag')->with('status', 'L\'tag a bien eté supprimé avec succés.');
   }
